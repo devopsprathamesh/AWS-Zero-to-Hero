@@ -149,3 +149,128 @@ AWS Budgets [Tier-2]
 ## Migration & Transfer
 
 AWS Database Migration Service (DMS) [Tier-2]
+
+
+=-=-=-=-=-=-=-
+
+
+Beginner learning order (recommended)
+1) Identity & Access
+
+IAM, STS, IAM Identity Center (SSO)
+Why first: you can’t do anything safely without permissions; most “it doesn’t work” issues are IAM.
+
+2) Core Networking Foundations
+
+VPC, Security Groups, NACLs, VPC DNS basics
+Why: every workload (EKS included) depends on correct subnetting/routing/security boundaries.
+
+3) Compute Fundamentals
+
+EC2, Auto Scaling (and basic AMI/user-data concepts)
+Why: even in EKS-heavy orgs, node groups often run on EC2; you must understand instances and scaling.
+
+4) Storage Fundamentals
+
+S3, EBS, EFS
+Why: apps/logs/artifacts/backups live here; EKS storage and many AWS services depend on S3/KMS.
+
+5) Observability Basics
+
+CloudWatch, CloudTrail
+Why: you need logs/metrics/audit trails early so you can debug everything you build later.
+
+6) Infrastructure as Code
+
+CloudFormation, CDK
+Why: production AWS is provisioned via IaC; also forces clean, repeatable networking/IAM patterns.
+
+7) Operations & Day-2 Management
+
+Systems Manager (SSM)
+Why: patching, remote access without bastions, automation runbooks—core on-call tooling.
+
+8) Load Balancing
+
+ELB (ALB/NLB/GWLB)
+Why: almost every real service needs ingress/load balancing; critical for EKS Ingress and service exposure.
+
+9) Traffic Management (DNS)
+
+Route 53
+Why: blue/green, failover, and multi-environment routing all start with DNS patterns.
+
+10) Containers Fundamentals
+
+ECR, (optionally ECS + Fargate basics)
+Why: understand images/registries/task roles first; then Kubernetes becomes much easier.
+
+11) Kubernetes on AWS
+
+EKS
+Why now: you’ll be effective faster once IAM/VPC/ELB/observability/container basics are in place.
+
+12) Security Hardening (Platform Security)
+
+KMS, Secrets Manager, ACM, WAF, GuardDuty
+Why: once workloads run, you must lock down encryption, secrets, TLS, and threat detection.
+
+13) Messaging (Decoupling)
+
+SQS, SNS
+Why: common production patterns for resilience, retries, async workflows.
+
+14) Automation & Orchestration
+
+EventBridge, Step Functions
+Why: event-driven ops, workflows, and reliable automation become natural after messaging basics.
+
+15) Databases (Core Options)
+
+RDS, Aurora, DynamoDB
+Why: most platforms run on one of these; you’ll need backups, HA, scaling, auth patterns.
+
+16) Backup & DR
+
+AWS Backup
+Why: once data exists, you need recovery guarantees and restore testing.
+
+17) Governance (Multi-account at scale)
+
+Organizations, Control Tower
+Why: best learned after you’ve built a few environments; then you’ll “feel” why guardrails matter.
+
+18) Compliance & Posture Management
+
+Config, Security Hub
+Why: makes sense after governance + security basics; used for audits and continuous controls.
+
+19) Advanced Networking (Scale / Multi-account)
+
+Transit Gateway
+Why: becomes necessary in multi-VPC, multi-account EKS platforms; too heavy for day-1 learning.
+
+20) Edge & Acceleration
+
+CloudFront
+Why: important for global apps, caching, security posture—but not a prerequisite for EKS fundamentals.
+
+21) FinOps / Cost Management
+
+Cost Explorer, Budgets
+Why: should start early as habits, but deep optimization is more meaningful once you run workloads.
+
+22) Data & Analytics
+
+Athena, Glue
+Why: often owned by data/platform teams; useful for logs/CUR analytics later.
+
+23) Search & Cache (Specialized but common)
+
+OpenSearch, ElastiCache
+Why: great differentiators, but easier after you understand databases + observability.
+
+24) Migration & Transfer
+
+DMS
+Why: mostly project-driven; learn when you hit a migration/modernization initiative.
